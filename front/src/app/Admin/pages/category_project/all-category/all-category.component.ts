@@ -1,3 +1,4 @@
+import { category } from './../../../../model/category.model';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './all-category.component.css'
 })
 export class AllCategoryComponent {
-
+  skills :category[] = [
+    { id: 1, name: '2D PLAN' },
+    { id: 2, name: '3D PLAN' }
+  ];
 }

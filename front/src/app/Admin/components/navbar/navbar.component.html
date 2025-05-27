@@ -1,1 +1,62 @@
-<p>navbar works!</p>
+<div class="h-screen bg-gray-900 text-white transition-all duration-300"
+     [ngClass]="{ 'w-64': isSidebarOpen, 'w-16': !isSidebarOpen }">
+
+  <!-- Sidebar Toggle Button -->
+  <div class="flex justify-end p-2">
+    <button (click)="togglesidebar()" class="text-white text-lg">
+      <i class="fa-solid fa-bars" style="color: #cbd5e1"></i>
+    </button>
+  </div>
+
+  <!-- Logo Section -->
+  <div class="text-center mb-6">
+    <img
+      src="assets/Image/logo.png"
+      alt="logo"
+      class="mx-auto"
+      [ngClass]="{ 'h-32 w-32': isSidebarOpen, 'h-12 w-12': !isSidebarOpen }" />
+  </div>
+
+  <!-- Navigation Menu -->
+  <nav class="px-4">
+
+    <!-- Loop through main menu items -->
+    @for (menu of menus; track menu.title) {
+      <div class="mb-2">
+
+        <!-- MAIN MENU ITEM -->
+        <div class="flex items-center justify-between cursor-pointer p-2 hover:text-cyan-400"
+             (click)="menu.subItems ? toggleSubMenu(menu.title) : setSelectedTitleAndNavigate(menu.title, menu.route)">
+          <div class="flex items-center gap-3">
+            <i class="fas" [ngClass]="menu.icon" [style.color]="menu.style"></i>
+            @if (isSidebarOpen) {
+              <span>{{ menu.title }}</span>
+            }
+          </div>
+
+          <!-- Only show chevron if submenu exists -->
+          @if (isSidebarOpen && menu.subItems) {
+            <i class="fas" [ngClass]="isSubMenuOpen(menu.title) ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+          }
+        </div>
+
+        <!-- SUBMENU ITEMS (if open) -->
+        @if (menu.subItems && isSubMenuOpen(menu.title)) {
+          <ul class="ml-8 text-sm text-gray-400 space-y-1">
+            @for (item of menu.subItems; track item.title) {
+              <li>
+                <a class="hover:text-cyan-400 cursor-pointer block"
+                   [routerLink]="item.route"
+                   (click)="setSelectedTitle(menu.title)">
+                  {{ item.title }}
+                </a>
+              </li>
+            }
+          </ul>
+        }
+
+      </div>
+    }
+
+  </nav>
+</div>

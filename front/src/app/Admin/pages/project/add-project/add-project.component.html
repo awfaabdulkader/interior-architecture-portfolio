@@ -1,1 +1,53 @@
-<p>add-project works!</p>
+<div class="flex justify-center items-center h-full">
+    <div class="bg-white p-6 rounded-xl shadow w-full max-w-3xl">
+        <h2 class="text-center text-xl font-semibold mb-6">Add project</h2>
+
+        <form [formGroup]="ProjectForm" (ngSubmit)="OnSubmit()" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label class="text-sm block mb-1">Name</label>
+                <input formControlName="name" type="text" placeholder="Villa"
+                    class="w-full border border-gray-300 rounded px-3 py-2 outline-none focus:ring-2 focus:ring-teal-500" />
+            </div>
+
+            <div>
+                <label class="text-sm block mb-1">Category</label>
+                <select formControlName="category"
+                    class="w-full border border-gray-300 rounded px-3 py-2 outline-none focus:ring-2 focus:ring-teal-500">
+                    <option value="" disabled>Select category</option>
+                    @for (category of categories; track category) {
+                    <option [value]="category">{{ category }}</option>
+                    }
+                </select>
+            </div>
+
+            <div class="md:col-span-2">
+                <label class="text-sm block mb-1">Description</label>
+                <textarea formControlName="description" rows="4" placeholder="Description"
+                    class="w-full border border-gray-300 rounded px-3 py-2 outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+            </div>
+
+            <div class="md:col-span-2">
+                <label class="text-sm block mb-1">Pictures</label>
+                <div
+                    class="w-full border border-dashed border-gray-400 rounded px-3 py-4 text-center text-gray-400 hover:border-teal-500" (click)="fileInput.click()" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+                    <input type="file" multiple (change)="onImageChange($event)"  class="hidden" #fileInput>
+                    <div (click)="fileInput.click()" class="cursor-pointer">
+                        Select image or Drop it
+                    </div>
+                    <div class="flex flex-wrap gap-2 justify-center mt-2">
+                        @for (img of imagesPreview; track img) {
+                        <img [src]="img" alt="preview" class="h-16 rounded shadow" />
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 flex justify-center mt-4">
+                <button type="submit"
+                    class="bg-teal-600 text-white px-6 py-2 rounded-full hover:bg-teal-700 transition duration-200">
+                    Add
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

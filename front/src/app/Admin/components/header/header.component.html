@@ -1,0 +1,40 @@
+<div class="w-full h-20 bg-gradient-to-r from-gray-900 to-gray-800 text-white shadow-md flex items-center justify-between px-6">
+    <!-- Left side with title and breadcrumb -->
+    <div class="flex flex-col">
+      <h1 class="text-2xl font-bold text-cyan-400">{{ selectedTitle }}</h1>
+      <div class="text-sm text-gray-400 flex items-center gap-2">
+        <span>Admin</span>
+        <i class="fas fa-chevron-right text-xs"></i>
+        <span>{{ selectedTitle }}</span>
+      </div>
+    </div>
+    
+    <!-- Right side with actions -->
+    <div class="flex items-center gap-4">
+      <!-- Search -->
+      <div class="relative hidden md:block">
+        <input 
+          type="text" 
+          placeholder="Search..." 
+          class="bg-gray-800 rounded-full px-4 py-2 text-sm w-48 focus:outline-none focus:ring-2 focus:ring-cyan-400">
+        <i class="fas fa-search absolute right-3 top-2.5 text-gray-400"></i>
+      </div>
+      
+      <!-- Notification bell -->
+      <div class="relative cursor-pointer hover:text-cyan-400 transition-colors">
+        <i class="fas fa-bell text-lg"></i>
+        <div class="absolute -top-2 -right-2 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-xs">3</div>
+      </div>
+      
+      <!-- User profile -->
+      <div class="flex items-center gap-3 cursor-pointer">
+        <div class="w-10 h-10 bg-gray-700 rounded-full overflow-hidden">
+          <img src="assets/Image/profile.png" alt="User" class="w-full h-full object-cover" onerror="this.src='assets/Image/default-avatar.png'">
+        </div>
+        <div class="hidden md:block">
+          <p class="text-sm font-medium">Admin User</p>
+          <p class="text-xs text-gray-400">Administrator</p>
+        </div>
+      </div>
+    </div>
+  </div>

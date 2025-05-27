@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Skill } from '../../../../model/skills.model';
 
 @Component({
   selector: 'app-all-skills',
@@ -8,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './all-skills.component.css'
 })
 export class AllSkillsComponent {
+skills : Skill[] = [
+  { id: 1, name: 'vray', logo: 'assets/Image/vray.png' },
 
+  { id: 2, name: '3ds max', logo: 'assets/Image/3dsmax.png' },
+  
+  
+];
 }

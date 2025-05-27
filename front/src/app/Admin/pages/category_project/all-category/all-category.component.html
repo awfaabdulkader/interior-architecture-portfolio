@@ -1,1 +1,30 @@
-<p>all-category works!</p>
+<div class="bg-white rounded-lg w-full max-w-2xl mx-auto p-6">
+    <!-- Title -->
+    <h2 class="text-center text-lg font-medium text-gray-800 mb-8">
+      List Skills
+    </h2>
+
+    <!-- Table -->
+    <div class="overflow-x-auto">
+      <table class="w-full">
+        <thead>
+          <tr class="border-b border-gray-200">
+            <th class="text-left py-3 px-4 font-medium text-gray-600">category</th>
+            <th class="text-right py-3 px-4 font-medium text-gray-600">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (skill of skills; track skill.id) {
+            <tr class="border-b border-gray-100 hover:bg-gray-50">
+              <td class="py-3 px-4 text-gray-800">{{ skill.name}}</td>
+              <td class="py-3 px-4 text-right">
+                <button class="text-blue-600 hover:text-blue-800 text-sm">
+                    action
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>

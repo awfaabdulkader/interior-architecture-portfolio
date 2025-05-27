@@ -1,0 +1,14 @@
+# Laravel (backend)
+backend/vendor/
+backend/.env
+backend/storage/
+backend/node_modules/
+
+# Angular (frontend)
+frontend/dist/
+frontend/node_modules/
+frontend/.angular/
+
+# IDE
+.vscode/
+.idea/

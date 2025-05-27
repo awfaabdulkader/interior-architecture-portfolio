@@ -14,7 +14,7 @@ import { HomeComponent } from "./user/pages/home/home.component";
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, ProfileComponent, ServicesPageComponent, ExperienceComponent, SkillsComponent, RacentprojectsComponent, WorkwithusComponent, ContactComponent, FooterComponent, HomeComponent],
-  templateUrl: './app.component.html',
+  template: `<router-outlet></router-outlet>`,
   styleUrl: './app.component.css'
 })
 export class AppComponent {
