@@ -23,8 +23,8 @@ class ExperienceRequest extends FormRequest
     {
         return [
             'user_id' => 'required|exists:users,id',
-            'year_start' => 'required|date_format:Y',
-            'year_end' => 'required|date_format:Y|after_or_equal:year_start',
+            'year_start' => 'required|date_format:Y-m-d',
+            'year_end' => 'required|date_format:Y-m-d|after_or_equal:year_start',
             'poste' => 'required|string|max:255',
             'place' => 'required|string|max:255',
             'city' => 'required|string|max:255',

@@ -15,8 +15,8 @@ class Education extends Model
     ];
 
     protected $casts = [
-        'year_start' => 'date',
-        'year_end' => 'date',
+        'year_start' => 'datetime:Y-m-d',
+        'year_end' => 'datetime:Y-m-d',
     ];
 
     public function user()

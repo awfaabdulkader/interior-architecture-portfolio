@@ -26,6 +26,9 @@ class ProjectRequest extends FormRequest
             'name' => 'required|string|max:255',
             'category_id' => 'required|exists:categories,id',
             'description' => 'required|string|max:1000',
+            'image_url' => 'required|array|nullable', // images must be an array (multiple files)
+            'image_url.*' => 'file|nullable|mimes:jpg,jpeg,png|max:2048', // each file must be jpg, png, max 2MB
+
         ];
     }
 }
