@@ -17,16 +17,16 @@ Route::post('/login', [AuthController::class, 'Login']);
 Route::get('/categories/{id}/projects', [CategoryController::class, 'getProjectsByCategory']);
 Route::post('/contact', [ContactController::class, 'store']);
 Route::get('/admin/contacts', [ContactController::class, 'index']);
+Route::get('/test-category', [CategoryController::class, 'test']); // Test route for debugging
 
 
 // protected routes
 Route::middleware('auth:sanctum')->group(function () {
    Route::post('/logout', [AuthController::class, 'Logout']);
-   Route::apiResource("/category" , CategoryController::class);
+   Route::apiResource("/category", CategoryController::class);
    Route::apiResource('/experience', ExperienceController::class);
    Route::apiResource('/projects', ProjectController::class);
    Route::apiResource('/education', EducationController::class);
    Route::apiResource('/skills', SkillController::class);
-   Route::apiResource('/cvs' , CvController::class);
-   
+   Route::apiResource('/cvs', CvController::class);
 });
